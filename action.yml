@@ -4,7 +4,7 @@ inputs:
   github_token:
     description: "Token to authenticate on behalf of GitHub Actions"
     default: ${{ github.token }}
-    
+
   base:
     required: true
     type: string
@@ -16,8 +16,9 @@ inputs:
     default: ''
     
 outputs:
-  status:
+  head-status:
     description: 'Status of head branch'
+
 runs:
   using: 'node16'
   main: 'index.js'

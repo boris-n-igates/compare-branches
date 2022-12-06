@@ -20,8 +20,7 @@ async function run(){
     });
 
     if(response.status === 200){
-      console.log('data.status ' + response.data.status); 
- 
+      core.setOutput('head-status', response.data.status)
     }
 
     
