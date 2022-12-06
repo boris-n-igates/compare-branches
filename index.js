@@ -15,14 +15,21 @@ async function run(){
     console.log('base ' + base);
     console.log('head ' + head);
 
-    const [response, status] = await client.request('GET /repos/{owner}/{repo}/compare/{basehead}{?page,per_page}', {
+   const resp =  await client.request('GET /repos/{owner}/{repo}/commits{?sha,path,author,since,until,per_page,page}', {
+      owner: context.repo.owner,
+      repo: context.repo.repo,
+    })
+
+    console.log("%j", resp);  
+
+  /*   const [response, status] = await client.request('GET /repos/{owner}/{repo}/compare/{basehead}{?page,per_page}', {
       owner: context.repo.owner,
       repo: context.repo.repo,
       basehead: `{${base}}...{${head}}`
     })
 
     console.log('status ' + status);
-    console.log("%j", response);
+    console.log("%j", response); */
     
   } catch (error) {
     console.log('error ' + error);
