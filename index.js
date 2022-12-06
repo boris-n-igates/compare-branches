@@ -11,17 +11,12 @@ async function run(){
   
     const context = github.context;
     const client = github.getOctokit(token);
-
-    console.log('base ' + base);
-    console.log('head ' + head);
-
-    const basehead = `{${base}}...{${head}}`
-    console.log('basehead ' + basehead);
+    const basehead = `${base}...${head}`
 
    const response = await client.request('GET /repos/{owner}/{repo}/compare/{basehead}{?page,per_page}', {
       owner: context.repo.owner,
       repo: context.repo.repo,
-      basehead: `${base}...${head}`
+      basehead: basehead
     });
 
     if(response.status === 200){
@@ -29,10 +24,8 @@ async function run(){
  
     }
 
-    console.log("%j", response); 
     
   } catch (error) {
-    console.log('error ' + error);
     core.setFailed(error.message);
   }
 }
