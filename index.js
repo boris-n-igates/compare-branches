@@ -22,6 +22,7 @@ async function run(){
     console.log("%j", response);
     
   } catch (error) {
+    console.log('error ' + error);
     core.setFailed(error.message);
   }
 }
