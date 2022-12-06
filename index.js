@@ -25,9 +25,8 @@ async function run(){
     });
 
     if(response.status === 200){
-      const data = JSON.parse(response.data);
-      console.log('data.status ' + data.status); 
-      data.status
+      console.log('data.status ' + response.data.status); 
+ 
     }
 
     console.log("%j", response); 
