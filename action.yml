@@ -1,0 +1,23 @@
+name: 'Compare Branches in Github'
+description: 'Compare branches using github rest api'
+inputs:
+  github_token:
+    description: "Token to authenticate on behalf of GitHub Actions"
+    default: ${{ github.token }}
+    
+  base:
+    required: true
+    type: string
+    default: ''
+
+  head:
+    required: true
+    type: string
+    default: ''
+    
+outputs:
+  status:
+    description: 'Status of head branch'
+runs:
+  using: 'node16'
+  main: 'index.js'
