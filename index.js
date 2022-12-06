@@ -22,7 +22,13 @@ async function run(){
       owner: context.repo.owner,
       repo: context.repo.repo,
       basehead: `${base}...${head}`
-    })
+    });
+
+    if(response.status === 200){
+      const data = JSON.parse(response.data);
+      console.log('data.status ' + data.status); 
+      data.status
+    }
 
     console.log("%j", response); 
     
