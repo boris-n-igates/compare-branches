@@ -21,7 +21,7 @@ async function run(){
    const response = await client.request('GET /repos/{owner}/{repo}/compare/{basehead}{?page,per_page}', {
       owner: context.repo.owner,
       repo: context.repo.repo,
-      basehead: `{${base}}...{${head}}`
+      basehead: `${base}...${head}`
     })
 
     console.log("%j", response); 
