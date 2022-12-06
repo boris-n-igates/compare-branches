@@ -15,7 +15,8 @@ async function run(){
     console.log('base ' + base);
     console.log('head ' + head);
 
- 
+    const basehead = `{${base}}...{${head}}`
+    console.log('basehead ' + basehead);
 
    const response = await client.request('GET /repos/{owner}/{repo}/compare/{basehead}{?page,per_page}', {
       owner: context.repo.owner,
